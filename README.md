@@ -1,2 +1,2 @@
 # Calculator-API
-This repository is a temporary repository.
+This repository is a temporary.
