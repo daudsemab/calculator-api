@@ -1,2 +1,2 @@
 # Calculator-API
-This repository is a temporary.
+This repository is about DevOps.

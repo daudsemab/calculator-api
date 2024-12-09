@@ -1,0 +1,154 @@
+Started by user Muhammad Dawood Semab
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/jenkins_home/workspace/DeclaritivePipelineSonarQube
+[Pipeline] {
+[Pipeline] tool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (checkout code)
+[Pipeline] git
+The recommended git tool is: NONE
+using credential 28e7f08d-193c-45d2-817c-632398395b21
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/DeclaritivePipelineSonarQube/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/daudsemab/calculator-api # timeout=10
+Fetching upstream changes from https://github.com/daudsemab/calculator-api
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.5'
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --force --progress -- https://github.com/daudsemab/calculator-api +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/dev^{commit} # timeout=10
+Checking out Revision 0ac5e5f3b3f998f6a5b479c2409aab0b9718ec8d (refs/remotes/origin/dev)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 0ac5e5f3b3f998f6a5b479c2409aab0b9718ec8d # timeout=10
+ > git branch -a -v --no-abbrev # timeout=10
+ > git branch -D dev # timeout=10
+ > git checkout -b dev 0ac5e5f3b3f998f6a5b479c2409aab0b9718ec8d # timeout=10
+Commit message: "added docker installation bash script, docker-compose, and Jenkinsfile"
+ > git rev-list --no-walk 0ac5e5f3b3f998f6a5b479c2409aab0b9718ec8d # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (sonarqube analysis)
+[Pipeline] sh
++ /var/jenkins_home/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonarqube-scanner-621/bin/sonar-scanner -Dsonar.projectKey=CalculatorAPI -Dsonar.sources=calculator.py -Dsonar.host.url=http://sonarqube:9000 -Dsonar.token=sqp_98d81e013d60d5565a97546b86c0546be65c77d0
+06:24:09.588 INFO  Scanner configuration file: /var/jenkins_home/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonarqube-scanner-621/conf/sonar-scanner.properties
+06:24:09.592 INFO  Project root configuration file: NONE
+06:24:09.609 INFO  SonarScanner CLI 6.2.1.4610
+06:24:09.610 INFO  Java 17.0.13 Eclipse Adoptium (64-bit)
+06:24:09.611 INFO  Linux 6.8.0-49-generic amd64
+06:24:09.636 INFO  User cache: /var/jenkins_home/.sonar/cache
+06:24:10.042 INFO  JRE provisioning: os[linux], arch[x86_64]
+06:24:10.105 INFO  Communicating with SonarQube Server 24.12.0.100206
+06:24:10.343 INFO  Starting SonarScanner Engine...
+06:24:10.343 INFO  Java 17.0.11 Eclipse Adoptium (64-bit)
+06:24:10.957 INFO  Load global settings
+06:24:11.007 INFO  Load global settings (done) | time=50ms
+06:24:11.009 INFO  Server id: 147B411E-AZObQr-dcEijqc_qN69w
+06:24:11.015 INFO  Loading required plugins
+06:24:11.015 INFO  Load plugins index
+06:24:11.025 INFO  Load plugins index (done) | time=9ms
+06:24:11.025 INFO  Load/download plugins
+06:24:11.049 INFO  Load/download plugins (done) | time=25ms
+06:24:11.248 INFO  Process project properties
+06:24:11.255 INFO  Process project properties (done) | time=7ms
+06:24:11.263 INFO  Project key: CalculatorAPI
+06:24:11.264 INFO  Base dir: /var/jenkins_home/workspace/DeclaritivePipelineSonarQube
+06:24:11.264 INFO  Working dir: /var/jenkins_home/workspace/DeclaritivePipelineSonarQube/.scannerwork
+06:24:11.271 INFO  Load project settings for component key: 'CalculatorAPI'
+06:24:11.290 INFO  Load project settings for component key: 'CalculatorAPI' (done) | time=19ms
+06:24:11.309 INFO  Load quality profiles
+06:24:11.354 INFO  Load quality profiles (done) | time=46ms
+06:24:11.364 INFO  Auto-configuring with CI 'Jenkins'
+06:24:11.382 INFO  Load active rules
+06:24:15.477 INFO  Load active rules (done) | time=4096ms
+06:24:15.481 INFO  Load analysis cache
+06:24:15.495 INFO  Load analysis cache (1.7 kB) | time=14ms
+06:24:15.547 INFO  Preprocessing files...
+06:24:15.617 INFO  1 language detected in 1 preprocessed file
+06:24:15.618 INFO  0 files ignored because of scm ignore settings
+06:24:15.619 INFO  Loading plugins for detected languages
+06:24:15.619 INFO  Load/download plugins
+06:24:15.631 INFO  Load/download plugins (done) | time=11ms
+06:24:15.677 INFO  Load project repositories
+06:24:15.690 INFO  Load project repositories (done) | time=13ms
+06:24:15.701 INFO  Indexing files...
+06:24:15.701 INFO  Project configuration:
+06:24:15.710 INFO  1 file indexed
+06:24:15.711 INFO  Quality profile for py: Sonar way
+06:24:15.712 INFO  ------------- Run sensors on module CalculatorAPI
+06:24:15.740 INFO  Load metrics repository
+06:24:15.763 INFO  Load metrics repository (done) | time=23ms
+06:24:16.164 INFO  Sensor JaCoCo XML Report Importer [jacoco]
+06:24:16.165 INFO  'sonar.coverage.jacoco.xmlReportPaths' is not defined. Using default locations: target/site/jacoco/jacoco.xml,target/site/jacoco-it/jacoco.xml,build/reports/jacoco/test/jacocoTestReport.xml
+06:24:16.166 INFO  No report imported, no coverage information will be imported by JaCoCo XML Report Importer
+06:24:16.167 INFO  Sensor JaCoCo XML Report Importer [jacoco] (done) | time=3ms
+06:24:16.167 INFO  Sensor Java Config Sensor [iac]
+06:24:16.182 INFO  0 source files to be analyzed
+06:24:16.185 INFO  0/0 source files have been analyzed
+06:24:16.185 INFO  Sensor Java Config Sensor [iac] (done) | time=19ms
+06:24:16.186 INFO  Sensor Python Sensor [python]
+06:24:16.188 WARN  Your code is analyzed as compatible with all Python 3 versions by default. You can get a more precise analysis by setting the exact Python version in your configuration via the parameter "sonar.python.version"
+06:24:16.199 INFO  Starting global symbols computation
+06:24:16.200 INFO  1 source file to be analyzed
+06:24:16.502 INFO  1/1 source file has been analyzed
+06:24:16.521 INFO  Starting rules execution
+06:24:16.521 INFO  1 source file to be analyzed
+06:24:16.793 INFO  1/1 source file has been analyzed
+06:24:16.794 INFO  The Python analyzer was able to leverage cached data from previous analyses for 0 out of 1 files. These files were not parsed.
+06:24:16.794 INFO  Sensor Python Sensor [python] (done) | time=608ms
+06:24:16.794 INFO  Sensor Cobertura Sensor for Python coverage [python]
+06:24:16.797 INFO  Sensor Cobertura Sensor for Python coverage [python] (done) | time=4ms
+06:24:16.798 INFO  Sensor PythonXUnitSensor [python]
+06:24:16.799 INFO  Sensor PythonXUnitSensor [python] (done) | time=2ms
+06:24:16.800 INFO  Sensor IaC Docker Sensor [iac]
+06:24:16.863 INFO  0 source files to be analyzed
+06:24:16.863 INFO  0/0 source files have been analyzed
+06:24:16.863 INFO  Sensor IaC Docker Sensor [iac] (done) | time=63ms
+06:24:16.863 INFO  Sensor TextAndSecretsSensor [text]
+06:24:16.863 INFO  Available processors: 8
+06:24:16.863 INFO  Using 8 threads for analysis.
+06:24:17.106 INFO  The property "sonar.tests" is not set. To improve the analysis accuracy, we categorize a file as a test file if any of the following is true:
+  * The filename starts with "test"
+  * The filename contains "test." or "tests."
+  * Any directory in the file path is named: "doc", "docs", "test" or "tests"
+  * Any directory in the file path has a name ending in "test" or "tests"
+
+06:24:17.115 INFO  Using git CLI to retrieve untracked files
+06:24:17.118 INFO  Analyzing language associated files and files included via "sonar.text.inclusions" that are tracked by git
+06:24:17.126 INFO  1 source file to be analyzed
+06:24:17.138 INFO  1/1 source file has been analyzed
+06:24:17.139 INFO  Sensor TextAndSecretsSensor [text] (done) | time=276ms
+06:24:17.141 INFO  ------------- Run sensors on project
+06:24:17.217 INFO  Sensor Zero Coverage Sensor
+06:24:17.221 INFO  Sensor Zero Coverage Sensor (done) | time=3ms
+06:24:17.226 INFO  CPD Executor Calculating CPD for 1 file
+06:24:17.230 INFO  CPD Executor CPD calculation finished (done) | time=3ms
+06:24:17.236 INFO  SCM revision ID '0ac5e5f3b3f998f6a5b479c2409aab0b9718ec8d'
+06:24:17.282 INFO  Analysis report generated in 48ms, dir size=220.1 kB
+06:24:17.293 INFO  Analysis report compressed in 10ms, zip size=25.3 kB
+06:24:17.349 INFO  Analysis report uploaded in 55ms
+06:24:17.350 INFO  ANALYSIS SUCCESSFUL, you can find the results at: http://sonarqube:9000/dashboard?id=CalculatorAPI
+06:24:17.350 INFO  Note that you will be able to access the updated dashboard once the server has processed the submitted analysis report
+06:24:17.350 INFO  More about the report processing at http://sonarqube:9000/api/ce/task?id=e74bc2ae-8099-45b2-95b5-4c622b06ddeb
+06:24:17.360 INFO  Analysis total time: 6.281 s
+06:24:17.361 INFO  SonarScanner Engine completed successfully
+06:24:17.393 INFO  EXECUTION SUCCESS
+06:24:17.394 INFO  Total time: 7.808s
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (build docker image)
+[Pipeline] sh
++ docker --version echo building docker image docker build . echo Successfully Build Docker Image
+Docker version 20.10.24+dfsg1, build 297e128
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS

@@ -16,7 +16,5 @@ echo "Setup Auto Sudo for Docker"
 sudo usermod -aG docker ${USER}
 su - ${USER}
 groups
-echo 
-
-# commands copied from the following blog: how-to-install-and-use-docker-on-ubuntu-20-04 --- www.digitalocean.com
+echo "Successfully Completed Docker Setup"
 
